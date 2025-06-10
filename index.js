@@ -103,6 +103,26 @@ const showRandomLine = () => {
   }
 };
 
+const showASCIIArt = () => {
+    const ASCIIART_FILE = path.join(__dirname, 'asciiart.txt');
+
+    try{
+        const text = fs.readFileSync(ASCIIART_FILE, 'utf8');
+        const lines = text.      
+        split('splitArtHere')
+        .map(chunk => chunk.trim())
+        .filter(chunk => chunk !== '');
+        if (lines.length === 0) {
+      console.log('No art found in asciiart.txt.');
+    } else {
+      const randomArt = lines[Math.floor(Math.random() * lines.length)];
+      console.log(`\n ${randomArt}\n`);
+    }
+  } catch (err) {
+    console.error('Error reading quotes.txt:', err.message);
+  }
+};
+
 
 
 
@@ -126,6 +146,9 @@ rl.on('line', (line) => {
       break;
     case 'delete':
       deleteTask(numberArgument);
+      break;
+    case 'ascii':
+        showASCIIArt();
       break;
     case 'inspire':
         showRandomLine();
