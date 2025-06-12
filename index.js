@@ -126,7 +126,7 @@ const showASCIIArt = () => {
 
 
 
-// --- Main Application Logic ---
+// Main stuff
 
 
 rl.on('line', (line) => {
@@ -168,18 +168,18 @@ rl.on('line', (line) => {
       console.log(`Unknown command: "${command}". Type "help" for a list of commands.`);
       break;
   }
-  // Re-display the prompt for the next command
+  // Redisplay the prompt for the next command
   rl.prompt();
 });
 
-// Handle the 'close' event to give a farewell message
+// Handle the 'close' event to give a friendly exit message
 rl.on('close', () => {
   console.log('\nAight bro pack it in mate');
   process.exit(0);
 });
 
-// --- Application Start ---
-console.clear(); // Clear the console for a clean start
+// Application Start
+console.clear(); // Clear the console 
 console.log('Just put the fries in the bag');
 console.log('Type "help" for a list of commands.');
 
